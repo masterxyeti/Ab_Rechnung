@@ -1,0 +1,37 @@
+using System;
+
+namespace AB_Rechnung
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            double anzahl, ep, gesamt;
+            gesamt = 0;
+           // mws = 0.19; optional nutzbar 
+            do
+            {
+                Console.Write("Bitte Artikelmenge eingeben: ");
+                    anzahl = double.Parse(Console.ReadLine());
+                if (anzahl <= 0)
+                {
+                    break;
+                }
+                Console.Write("Bitte Einzelpreis eingeben: ");
+                ep = double.Parse(Console.ReadLine());
+
+                gesamt = gesamt + (ep * anzahl);
+
+                
+            } while (anzahl != 0);
+            Console.WriteLine();
+            Console.WriteLine("Gesamtpreis netto:       {0:F2} Euro",gesamt);
+            Console.WriteLine("+ Mehrwertsteuer 19%:     " + gesamt * 0.19 + " Euro");
+            gesamt = gesamt + (gesamt * 0.19);
+            Console.WriteLine(" - - - - - - - - - - - - - - - - - - - -");
+            Console.WriteLine("Gesamtpreis brutto:      {0:F2} Euro",gesamt);
+            Console.WriteLine("Bitte beehren Sie uns bald wieder!");
+            Console.ReadKey();
+        }
+    }
+}
